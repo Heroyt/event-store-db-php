@@ -1,0 +1,54 @@
+{
+  "name": "heroyt/eventstoredb",
+  "description": "EventStoreDB PHP Client",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Tomáš Vojík",
+      "email": "vojik@wboy.cz"
+    }
+  ],
+  "scripts": {
+    "phpstan": "./vendor/bin/phpstan",
+    "phpcbf": "./vendor/bin/phpcbf",
+    "phpcs": "./vendor/bin/phpcs",
+    "protoc-old": "protoc --proto_path=./proto --plugin=protoc-gen-php-grpc --php_out=./generated --php-grpc_out=./generated proto/*",
+    "protoc": "protoc --proto_path=./proto --plugin=protoc-gen-grpc=./grpc_php_plugin --php_out=./generated --grpc_out=./generated proto/*"
+  },
+  "autoload": {
+    "psr-4": {
+      "EventStoreDb\\": "src/",
+      "GPBMetadata\\": "generated/GPBMetadata",
+      "GRPC\\": "generated/GRPC"
+    },
+    "files": [
+        "include/functions.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "EventStoreDb\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^11",
+    "phpstan/phpstan-phpunit": "^2.0",
+    "phpstan/extension-installer": "^1.4",
+    "squizlabs/php_codesniffer": "^3.11"
+  },
+  "require": {
+    "php": ">=8.4",
+    "grpc/grpc": "^1.57",
+    "ext-grpc": "*",
+    "google/protobuf": "^4.29",
+    "symfony/serializer": "^7.2"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "php-http/discovery": true
+    }
+  }
+}
