@@ -23,3 +23,5 @@ Temporary Items
 .apdisk
 composer.lock
 build
+temp
+tmp
